@@ -1,0 +1,1048 @@
+{
+   "schemaVersion":"2021-11-01",
+   "name":"Government Lens",
+   "description":"The Government Lens helps people understand the special context and requirements of government and how to best deliver meaningful service and policy outcomes on AWS. This lens drives architectural qualities that layer government-specific best practices for progressive enhancement as a service design assurance function. For example, government customers can use the new service outcomes chapter to guide design and operating model considerations, as an indicator of readiness for government service launches, and to inform AWS Enterprise Support event management.",
+   "pillars":[
+      {
+         "id":"OPS",
+         "name":"Operational Excellence Pillar for Government",
+         "questions":[
+            {
+               "id":"OPS_1",
+               "title":"How does the organizational structure support strategic policy outcomes?",
+               "description":"As governments seek to digitally transform, technology expertise and experience is essential to achieving strategic policy outcomes. To verify that digital delivery of mission objectives can consistently evolve and be delivered successfully, organizational structures must be reshaped and be inclusive of both business and technology experts. Many government departments have functionally segmented, bureaucratic structures that create a challenge for modern delivery of portfolio objectives. These departments often use technology in a corporate silo or have outsourced their technology entirely. This structure has left many governments with an operational divide between their business and technology staff that slows or prevents the realization of new strategic intent. It is useful to explore and document opportunities to assure or encourage organizational structures that enable best policy outcomes over the full life of a service.",
+               "choices":[
+                  {
+                     "id":"OPS_1_1",
+                     "title":"Support the establishment of persistent and multi-disciplinary team structures.",
+                     "helpfulResource":{
+                        "displayText":"When services are developed as projects, with teams assembled for the project but disbanded at the end, the service is left without persistent product management. Identify and document the team structures and governance that can persist for the life of the service, ideally to include the design, data, technical, program and policy expertise required."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider persistent team structures that span policy and delivery in their forward planning for the service. Consider running a Cloud Adoption Framework assessment to support operational assessment and planning.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_2",
+                     "title":"The product team has sufficient delegated authority for delivery decision-making.",
+                     "helpfulResource":{
+                        "displayText":"Delivery and innovation happen at the speed of trust. Service and product owners require a reasonable amount of decision making autonomy to realize continuous improvement and operational reform in a timely manner. This autonomy has the benefit of streamlining escalation, unblocking slow and laborious go-live protocols, and minimizing decision gaps between business owners and technology people, and can be complemented by oversight mechanisms, without slowing or impeding good service delivery."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider delegation of two-door decision making, including continuous improvement and operational reforms in their forward planning for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_3",
+                     "title":"Support the creation of a Concept of Operations for the service.",
+                     "helpfulResource":{
+                        "displayText":"Create a Concept of Operations document that explicitly describes how the service will continually improve over time, with supported and authorized product management and team. Its contents might include delegated decision-making mechanisms, product management in government, outcomes or product-based funding, and how to bring multi-disciplinary teams together to manage aspects of the service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"If the organization does not have a Concept of Operations or equivalent documentation, encourage the organization to consider in their forward planning for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_4",
+                     "title":"Consider public, staff, and parliamentary feedback loops.",
+                     "helpfulResource":{
+                        "displayText":"Consider and document what additional feedback loOPS_might complement the feedback loOPS_defined in the main Operational Excellence Pillar, for the special context of the department and jurisdiction. For example, how might staff or the public report legal or impact concerns?",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_evolve_ops_feedback_loops.html"
+                     },
+                     "improvementPlan":{
+                        "displayText":"Identify and document any relevant additional feedback loops, and build these into the service architecture as appropriate.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_5",
+                     "title":"Where possible, consider a minimum viable product (MVP) deployment model.",
+                     "helpfulResource":{
+                        "displayText":"Many government projects take a big bang deployment model approach, attempting to develop all features and launch a fully formed product. This approach can create substantial risk, which can be minimized through iterative and MVP based deployment. An MVP deployment model identifies the minimum features needed for a functional product to launch, often initially to a subset of end users, and then scales and adds features in a test-driven way. This method accelerates early identification of and validation of product goals, while minimizing risk, delivering early value, and ensuring that all product features are tested for effectiveness with end users."
+                     },
+                     "improvementPlan":{
+                        "displayText":"If the organization does not want to adopt an MVP based deployment model, advise on the risk and encourage the organization to consider in their forward planning for the service. Provide use cases where appropriate.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"OPS_2",
+               "title":"How do you verify that digital experiences remain operational and relevant over time?",
+               "description":"Some government departments can only fund changes to a service through a new funding application for each change, which can make change slow and expensive. This funding model can lead to a great product becoming less than great over time. Funding models that support continuous improvement and ideally continuous innovation are key to operational service agility and responsiveness that can keep pace with changing user needs over time.",
+               "choices":[
+                  {
+                     "id":"OPS_2_1",
+                     "title":"Verify that government and other staff are well supported to operate and continuously improve the service.",
+                     "helpfulResource":{
+                        "displayText":"The more empowered public servants are to understand, manage, and improve their services, the more they are positioned to be proactive and effective in delivering great services, both directly and with vendors. Support the organization to identify and build the technical and design capabilities required for ongoing operational excellence of the service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Provide information and access to relevant AWS skills and capabilities training for the service, and support the organization to identify gaps throughout the process.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_2_2",
+                     "title":"Embed continuous improvement into the operating model.",
+                     "helpfulResource":{
+                        "displayText":"Continuous improvement helps make sure that public-facing government digital experiences don’t deteriorate over time. Investment must be made to maintain the continuous evolution and maintenance of the service to match the expectations and feedback of consumers. If you have a fixed or scheduled approach to improvement, support the best continuous improvement approach possible. "
+                     },
+                     "improvementPlan":{
+                        "displayText":"Run change scenarios with the organization, including small and significant changes to the service, to identify and document how continuous improvements will be enabled, with what oversight and decision making.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_2_3",
+                     "title":"Implement a design-led agile development approach.",
+                     "helpfulResource":{
+                        "displayText":"Ensure that the operating model supports a design-led agile approach that incorporates: Early feedback on requirements from citizens, industry, and government; Testing and evolving of non-technical go-live processes the government might need to conduct; Consistently and continuously evolve functionality as the service feedback and requirements mature over time- and Aligns with the concept of operations document to ensure expectations are met during service development and ongoing operations."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the need for an agile development, providing case studies where helpful.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_2_4",
+                     "title":"Implement a continuous improvement and agile funding framework.",
+                     "helpfulResource":{
+                        "displayText":"Ensure there is ongoing funding to support operational agility and continuous improvement of the service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the need for an agile funding framework, providing case studies where helpful.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  }
+
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"OPS_3",
+               "title":"How do you verify that the service meets operational transparency requirements?",
+               "description":"Many governments have strong or specific requirements around operational accountability through various audit and reporting mechanisms. In some jurisdictions, there are public reporting requirements for public facing services.",
+               "choices":[
+                  {
+                     "id":"OPS_3_1",
+                     "title":"Document how the service delivers operational accountability requirements.",
+                     "helpfulResource":{
+                        "displayText":"Many governments have strong requirements around operational accountability through various audit and reporting mechanisms. In some jurisdictions, there are public reporting requirements for public facing services. "
+                     },
+                     "improvementPlan":{
+                        "displayText":"Include any reporting requirements in the Concept of Operations, along with chain of responsible.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_3_2",
+                     "title":"Document how citizens and companies will be kept informed.",
+                     "helpfulResource":{
+                        "displayText":"To manage expectations and make it simple for consumers to use the service, create high quality communications (both marketing and transactional), supporting information, and technical documentation for the service.  "
+                     },
+                     "improvementPlan":{
+                        "displayText":"Include the public communications approach in the Concept of Operations, including who is responsible.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"OPS_4",
+               "title":"How can you improve solution definition criteria?",
+               "description":"Taking a little time to ensure the right solution is defined from the start can save money, time and efforts down the line. This encourages ways to validate and likely iterate the solution definition through policy/problem/opportunity validation, and testing with end users.",
+               "choices":[
+                  {
+                     "id":"OPS_4_1",
+                     "title":"Verify that multiple concepts are tested with end users prior to deciding on or building a solution.",
+                     "helpfulResource":{
+                        "displayText":"Testing concepts provides the opportunity to validate assumptions about what might work, and to proceed only with tested service options or policy interventions. Concepts should be tested against intended policy impacts, not just user feedback. Sometimes the most effective solution is not what is initially envisaged: a different type of service, a change to an existing service, a regulation, or no solution at all."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the use of the AWS Digital Innovation program, including Working Backwards workshops, to explore and identify the purpose and goals for the service. Leverage service and/or system design as is helpful.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_4_2",
+                     "title":"Identify reusable patterns in the desired service capabilities and intended service usage.",
+                     "helpfulResource":{
+                        "displayText":"When defining a solution, it is useful to draw out where capabilities might be reused, or made to be reusable as a utility. Patterns might appear as emergent (such as self-sovereign digital identity), or common (such as a notification service, or application of government legislation and rules as code). Patterns should have broad use case applicability with high volumes of reuse and could be candidates for whole of government reusable capabilities. "
+                     },
+                     "improvementPlan":{
+                        "displayText":"Identify and recommend potential reusable patterns for consideration in the solution architecture.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_4_3",
+                     "title":"Identify foundational or whole-of-government components to reuse or share.",
+                     "helpfulResource":{
+                        "displayText":"Informed by all of government architecture (where it exists) and the previous pattern identification, look for opportunities to standardize people, processes, and technology solutions to optimize delivery, implementation, and operation of one or many components that support a service capability as a digital foundation, or whole of government capability."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consider relevant government architectural frameworks, including from the Scenarios section of the Government Lens whitepaper.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/scenarios.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"OPS_5",
+               "title":"How can you improve solution acquisition criteria?",
+               "description":"Not all components will have the same business and technical requirements. Consider the following when designing, evaluating, acquiring or building solutions and technologies.",
+               "choices":[
+                  {
+                     "id":"OPS_5_1",
+                     "title":"Consider and prioiritise reuse where appropriate.",
+                     "helpfulResource":{
+                        "displayText":"Leverage modular architecture and use existing design systems, tools, environments and open-source government solutions, where feasible, to minimize duplication of systems and efforts, and to enable future system agility and extendibility of the solution. Provide relevant AWS reference architectures to support modular, virtualized and utility based approaches, enabling greatest extendibility and scalability of the service, ideally with an omni-channel approach if public facing."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Look for relevant existing tools, solutions or capabilities available in the jurisdiction or globally, and consider the AWS Open-Source catalogue.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_5_2",
+                     "title":"Consider build vs buy/acquire strategically.",
+                     "helpfulResource":{
+                        "displayText":"If a existing solution can be used without much modification, you might prefer an off the shelf tool (proprietary or open-source). However, if you require system agility, if a solution does not yet exist, or if you want to integrate multiple systems into a channel, consider the benefits of building. The capabilities and strengths of the customer's team should be considered and planned for to ensure service viability, both technically and financially."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consider an AWS Digital Innovation program to work backwards from the problem and identify the requirements and capabilities needed for a new solution. Support the customer to take a strategic approach to designing the architecture and sourcing of the service components. Where minimal customization is required and the solution is mission-aligned, consider purchasing a solution to meet a particular need, noting most modern services will require a blend of solutions.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_5_3",
+                     "title":"Consider where code, research and efforts can be shared.",
+                     "helpfulResource":{
+                        "displayText":"Reusable foundational components and solutions could be shared back to the public and/or the government community, sometimes with open-source licensing."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Provide guidance on sharing and contributing back to projects or to government.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_5_4",
+                     "title":"Consider a balanced approach to sourcing.",
+                     "helpfulResource":{
+                        "displayText":"Outsourcing might be suitable in the short term if there is a staffing constraint for design, implementation and ongoing operations. Customers are encouraged to develop and maintain a minimum viable internal expertise and delivery capability, to maintain control over the strategic direction, product management, continuous improvement and the selection criteria as above."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Provide guidance, support and training materials to support capability uplift.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_5_5",
+                     "title":"Consider the suitability of solution licensing.",
+                     "helpfulResource":{
+                        "displayText":"Licensing conditions can sometimes constrain the effectiveness or financial viability of a service in several ways, such as: If a user-based license model is used for a government service it may limit significant citizen uptake; License terms that are bound by hardware configurations can have an impact on service agility with financial consequences to scaling the government service as demand evolves; Creating a preferential technology ecosystem that inhibits the government’s use of other technologies can limit the ability to innovate and scale."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Organizations will have their own capabilities for this domain.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"NO_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"OPS_6",
+               "title":"Do you have adequate people and process risk management systems in place covering a broad risk spectrum?",
+               "description":"Every service should have a risk management plan to assess and manage risk. Risk management should be comprehensive to consider all hazards, including how the cloud service supports risk mitigation by design. This assessment is essential to make informed design decisions. Service risk must be contextualized as part of the broader organization risk strategy.",
+               "choices":[
+                  {
+                     "id":"OPS_6_1",
+                     "title":"Take an all-hazards approach.",
+                     "helpfulResource":{
+                        "displayText":" Include consideration of personnel, supply chain, cyber security, information security, and natural risks. Have a strong understanding of controls that can be inherited from the cloud service provider, for example, the physical security of data centers. Consider sovereign resilience requirements, which can aid in the survival of government in extreme circumstances."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Document the above into the relevant security documentation or Concept of Operations.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_6_2",
+                     "title":"Develop a risk management plan.",
+                     "helpfulResource":{
+                        "displayText":"Have a plan that supports ongoing risk assessment and treatment, and verifies that the service risk is contextualized as part of the organization’s risk profile. Decide what matters most to your organization, and to your service. Considerations include social, cultural, political or regional issues, economic and technology trends, policy and law, and your organizations aims, policies and strategies. Identify, analyze, and evaluate risks to help make sure that adequate treatments are identified so that your service is resilient. When considering the risk of a service, consider whether the risk is acceptable for the associated service outcome it is meant to achieve. Use relevant scenario planning."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Document the above into the relevant security documentation or Concept of Operations.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_6_3",
+                     "title":"Align with required compliance frameworks.",
+                     "helpfulResource":{
+                        "displayText":"When implementing compliance frameworks such as CSA, NIST, CISPE, ISM, and ISO, verify that the framework is appropriate for the risks requiring mitigation and that it is considered as part of the broader organizations risk strategy and risk appetite statement."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Document the above into the relevant security documentation or Concept of Operations, and provide relevant AWS certifications and risk management guides and case studies.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  },
+                  {
+                     "id":"OPS_6_4",
+                     "title":"Determine the necessary conditions of personnel engagement.",
+                     "helpfulResource":{
+                        "displayText":"Consider the Business Impact Level (BIL) of the service to determine personnel requirements, such as security clearances, vetting, data handling, and risk training."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Document the above into the relevant security documentation or Concept of Operations, provide the AWS certification programs as required.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"SEC",
+         "name":"Security Pillar for Government",
+         "questions":[
+            {
+               "id":"SEC_1",
+               "title":"What privacy practices have you adopted relating to the use of data?",
+               "description":"Verifying privacy by design for the special context of government.",
+               "choices":[
+                  {
+                     "id":"SEC_1_1",
+                     "title":"The encryption standard meets jurisdictional requirements.",
+                     "helpfulResource":{
+                        "displayText":"Cloud technologies make it simpler and cost effective to encrypt data. Government jurisdictions have specific compliance and data classification requirements. For example, they might have hardware or software certification requirements, or require that cryptographic controls be managed independently of the cloud service provider’s managed encryption services."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Leverage encryption to protect data at transport and at rest. See AWS Digital Sovereignty Pledge and guidance.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_2",
+                     "title":"Document how privacy and user needs have been considered.",
+                     "helpfulResource":{
+                        "displayText":"The possibilities for a personalized government service delivery must be balanced with maintaining end user control and privacy to maintain public trust. Government services should be designed to be as private as possible. Architects can link to data in place, use verifiable claims and credentials where possible, to maintain strong privacy controls and minimize any requirement to create new copies of data. Validate that sensitive data is protected, removed, or obfuscated to limit exposure. Use detection controls so that the operations team knows where sensitive data exists in the service. Access to data should require users and systems to demonstrate a strong security posture assessment, to be enforced with fine-grained authorization rules and multiple authentication controls."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider privacy in the design and management of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_3",
+                     "title":"Give end users appropriate control.",
+                     "helpfulResource":{
+                        "displayText":"To help alleviate privacy concerns, provide end users as much control over their experience as possible. This control can include the ability to dial up or down the helpfulness of the service, for example, the level of prompting, proactive delivery, or other forms of personalization. Be transparent about data storage, use, transmission, and access. Modern technologies must allow for continuous and informed consent mechanisms where users can be involved in the decision to share their data. Make it simple for end users to understand what has been shared, with whom, and for what purpose. Enable them to revoke consent at will, and verify that access to the data is immediately restricted."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider personal agency in the design and management of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_4",
+                     "title":"Minimize data copies where avoidable.",
+                     "helpfulResource":{
+                        "displayText":"In some circumstances, the ability to link to existing data might not be possible. Make use of aggregated data, synthetic data, or both. Use techniques such as verifiable claims or confidential computing to verify that the service can be operated with similar data to what is expected, while minimizing the risk of exposure or re-identification of personally identifiable information (PII)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Identify ways to use data that leverages verifiable claims/credentials, anonymisation, APIs etc for consideration by the organization.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_5",
+                     "title":"Consider and mitigate data exposure and consequences.",
+                     "helpfulResource":{
+                        "displayText":"Verify that vendor contracts inherit these obligations, and use legal and contractual means to prohibit the sharing, reuse, or storing of the data for any purpose other than delivering the government service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to assess exposure consequences.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SEC_2",
+               "title":"How do you handle real time responsiveness to security (including national security) threats?",
+               "description":"How does the organization monitor for and respond to threats in close to real time.",
+               "choices":[
+                  {
+                     "id":"SEC_2_1",
+                     "title":"Do threat modelling and scenario planning.",
+                     "helpfulResource":{
+                        "displayText":"To assess and inform business continuity planning, including an incident response plan within your ecosystem."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use scenario planning, and conduct an AWS security audit to help identify areas to improve.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_2_2",
+                     "title":"Test and document how security threats are detected and disrupted in real time.",
+                     "helpfulResource":{
+                        "displayText":"This documentation should include the escalation plan and mechanisms to relevant security and intelligence agencies for that jurisdiction."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Run threat scenarios with the organization to identify and document how threats are detected and disrupted in real time with clear lines of accountability. Provide AWS guidance and tools such as Shield Advanced and consider an AWS security workshop.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  },
+                  {
+                     "id":"SEC_2_3",
+                     "title":"Document the critical infrastructure considerations.",
+                     "helpfulResource":{
+                        "displayText":"Document the reliance upon critical infrastructure of the service, and how the service might be relied upon as critical infrastructure, which is of particular importance for national critical infrastructure planning and resilience. Engage with relevant security agencies if appropriate."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to identify critical dependencies and likelky impacts of service disruption.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-1.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"REL",
+         "name":"Reliability Pillar for Government",
+         "questions":[
+            {
+               "id":"REL_1",
+               "title":"How do you test the service and demonstrate resilience?",
+               "description":"Government services must perform the intended function correctly and consistently when it’s expected to. This includes the ability to operate and test the service through its total lifecycle and includes a high level of planning around service continuity and perceived reliability by the public.",
+               "choices":[
+                  {
+                     "id":"REL_1_1",
+                     "title":"Establish and document test-driven design and implementation, including scenario testing and mitigation planning.",
+                     "helpfulResource":{
+                        "displayText":"Establish system and process test environments, including scaled functional testing, user testing with the public, war gaming for procedural and scenario testing, and the potential for regulatory sandboxes for policy testing."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consider running regular AWS Well-Architected Game Days in the lead up to launching a new product to identify areas for improvement and end to end system/service reliability. Encourage the organization to consider persistent team structures that span policy and delivery in their forward planning for the service, design and run scenarios and mitigation planning sessions with the customer and scaled test processes and planning.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"REL_1_2",
+                     "title":"Seek peer review of reliability planning.",
+                     "helpfulResource":{
+                        "displayText":"Run and document feedback and recommendations from peer review sessions for the service and reliability planning."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the customer to engage with relevant peers to review, share and help assure the best possible reliability of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"REL_2",
+               "title":"How do you plan for government service continuity?",
+               "description":"Continuity of service is one of the highest priorities for government services. Many government services are not optional for people. These services are relied upon when we are at our most vulnerable. Business continuity is especially important to verify that end users are not put at risk from a lack of access to critical government services and systems.",
+               "choices":[
+                  {
+                     "id":"REL_2_1",
+                     "title":"Assess the impact of downtime and service deadlines.",
+                     "helpfulResource":{
+                        "displayText":"Test and document the assumptions about the likely impacts of service downtime, especially on vulnerable people and communities, and around anticipated deadlines such as elections, seasonal emergencies (eg fire season), and waiting times at medical care facilities. Capture these assumptions in user journey maps and document remediations/strategies in the Concept of Operations."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Analyze and document the impacts of downtime on end users, stakeholders and others who depend on the service, using a variety of relevant planned and unplanned scenarios.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"REL_2_2",
+                     "title":"Plan for graceful degradation of service, with appropriate fail-overs and alternative service pathways.",
+                     "helpfulResource":{
+                        "displayText":"Ensure that the service continues to operate as well as possible with graceful degradation (for example, if identity fails, can the user still access information?), and has appropriate fail-over strategies proportionate to the risk, and that a user can identify alternative pathways to the service, including offline and phone-based user journeys. Verify that alternative service pathways are quickly discoverable by end users, even if the digital services are down. Have a stakeholder list, FAQs, and a communications plan prepared."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use scenario planning, user journey maps, and support the organization to resource and plan for service degradation, failovers and alternative pathways for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"REL_2_3",
+                     "title":"Verify and document the processes and public reporting of post-incident reviews.",
+                     "helpfulResource":{
+                        "displayText":"Government departments often have specific requirements to report incidents publicly, and even when there isn't a requirement, it is often good practice to help maintain high public trust and confidence in the public institution. Identifying any requirements and ensuring the processes and expectations are clear and documented can assist in future incident management."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Work with the organization to document any specific/legislative requirements to report incidents publicly, and document relevant processes.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"PERF",
+         "name":"Performance Pillar for Government",
+         "questions":[
+            {
+               "id":"PERF_1",
+               "title":"How do you report outcomes performance of this solution?",
+               "description":" The performance efficiency pillar for government includes the ability to efficiently adhere to policy and mandate requirements, and to maintain that efficiency as demand or policy changes and technologies evolve.",
+               "choices":[
+                  {
+                     "id":"PERF_1_1",
+                     "title":"Document the public and governmental reporting mechanisms.",
+                     "helpfulResource":{
+                        "displayText":"Government services are expected to be reliable. Demonstrate how the public would have visibility to the reliability of the service through public dashboards, reporting, performance metrics, or annual reports. In some jurisdictions, this public reporting might include program reviews, where funds to deliver the service were allocated in the budget process."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider public performance reporting in their forward planning for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/performance-efficiency-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"PERF_1_2",
+                     "title":"Document the measurement and monitoring approach.",
+                     "helpfulResource":{
+                        "displayText":"Service and product owners must verify that government services are measuring and monitoring in a way that aligns with an agency’s key performance indicators (KPIs), as well as to monitor for service performance and user satisfaction."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to include agency, policy and mandate measures in the monitoring for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/performance-efficiency-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"PERF_1_3",
+                     "title":"Document the compliance foundations and the effort/cost for ongoing compliance and audit.",
+                     "helpfulResource":{
+                        "displayText":"Identify opportunities to keep duplication of efforts to a minimum, and opportunities to automate and streamline compliance where possible."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to demonstrate and measure efforts to streamline and/or automate compliance, to demonstrate and report costs avoided throughout the delivery of the service. Support the customer to build the foundations for compliance in the first place.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/performance-efficiency-pillar.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"PERF_2",
+               "title":"How do you manage continuous change and improvements for service reliability?",
+               "description":"Consider common change scenarios, including disruption to service and minor improvements, as part of the operating model.",
+               "choices":[
+                  {
+                     "id":"PERF_2_1",
+                     "title":"Document the process, cost, and resourcing for change using a range of likely change scenarios.",
+                     "helpfulResource":{
+                        "displayText":"These scenarios include changes to load (for example, major expected changes, unexpected public usage, or malicious events) and changes to service ranging from simple changes (such as updating content and minor feature changes), to new functionality and major changes. This can help to identify and manage performance efficiency as demand changes and technologies evolve, and can help identify structural or operational challenges for change agility."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use common change scenario planning to support the organization to resource for continuous change in operational planning for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/reliability-pillar.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"COST",
+         "name":"Cost Optimization Pillar for Government",
+         "questions":[
+            {
+               "id":"COST_1",
+               "title":"COST_1: How do you demonstrate an understanding of value for money?",
+               "description":" Most government entities have clear rules around how they assess value for money, but this can be subtly different across jurisdictions. For some countries, value for money is considered whatever is the best functionality for the cost to deliver the desired policy outcome. Other countries take into account the best balance of social, public, and environmental benefits along with cost. These procurement rules translate to how cost optimization is perceived, with broader analysis of the public value or policy realization sometimes considered as pure cost efficiencies. For this reason, running services at the lowest price point to deliver policy outcomes may or may not be considered cost optimization for the government department, although it's still a generally useful goal. Below is a list of considerations and good practices to explore with the customer and to document to make sure that value for money is achieved in a government context.",
+               "choices":[
+                  {
+                     "id":"COST_1_1",
+                     "title":"Document the definition of value for money for the jurisdictional and portfolio context.",
+                     "helpfulResource":{
+                        "displayText":"Identify how the service meets (and exceeds) the jurisdictional definition for value for money."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Engage with the government organization to understand and document their value for money definition. Work with your AWS account team to optimise costs. If you're on AWS Enterprise Support, your Technical Account Manager (TAM) can help with this. The AWS Tools for Reporting and cost optimization whitepaper can provide guidance.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_2",
+                     "title":"Document how the cost and value is reported.",
+                     "helpfulResource":{
+                        "displayText":"Document how cost and value of the service would be reported to oversight and governance bodies (for example, parliament, and public scrutiny)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to automate and provide ease of cost/value reporting for the service. AWS provides several reporting and cost-optimization tools, including AWS Cost Explorer, AWS Budgets, and AWS Cost and Usage Report. Serverless applications running on services like AWS Lambda and Amazon DynamoDB can help by providing insight into costs per event.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_3",
+                     "title":"Build and engage the visibility and capabilites to actively manage costs.",
+                     "helpfulResource":{
+                        "displayText":"Provide and support capability uplift for costs management and optimization through training, tools and equipping teams."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Provide delivery teams with the services and tools they need to be able to actively understand and manage their costs.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_4",
+                     "title":"Leverage existing solutions and capabilities where possible.",
+                     "helpfulResource":{
+                        "displayText":"Support the reuse of platforms, panels, marketplaces, research, design systems and existing solutions or components where possible."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to identify and leverage reusable tools, solutions, research and methods for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_5",
+                     "title":"Leverage professional networks and user groups.",
+                     "helpfulResource":{
+                        "displayText":"Identify and engage with cross-governmental networks, professional networks and relevant user groups to engage peer review and feedback on the solution."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to identify and leverage networks and communities of practice, and establish peer review sessions.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_6",
+                     "title":"Optimize for speed and scale of major events.",
+                     "helpfulResource":{
+                        "displayText":"It’s sometimes necessary to optimize for speed and scale to respond to a citizen need or department event. Government solutions might need to initially overcompensate on capacity to maintain service reliability during peak popularity, for example, at the time of a press release, census or election, to avoid breaking citizen trust. Fortunately, this necessary choice is temporary and works well with cloud economics. Service delivery teams can cost optimize and consider automatic scaling after release events, when utilization and popularity has normalized."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Provide guidance and support on automated resource optimization.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  },
+                  {
+                     "id":"COST_1_7",
+                     "title":"Optimize for budget planning cycles and processes in the jurisdiction.",
+                     "helpfulResource":{
+                        "displayText":"Provide decision-makers with the key metrics that they need to be able to balance citizen needs with service costs. Support the organization to take into account funding cycles and maintain continuity of service. Often, there is low flexibility in these cycles, however, government customers can be supported to build more flexibility into the program, project, or product-based funding mechanisms."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to automate and provide ease of cost/value reporting for the service, especially for delivery teams and decision makers.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/cost-optimization-pillar.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"SUS",
+         "name":"Sustainability Pillar for Government",
+         "questions":[
+            {
+               "id":"SUS_1",
+               "title":"What are the sustainability policies for the jurisdiction that your service operates within?",
+               "description":"Many governments around the world have made commitments to introduce measures to reduce their impact on the climate, and have become signatories to the Paris Agreement committing to introduce specific emission reductions by 2050. The sustainability pillar supports this action by exploring how a government might reduce the environmental impact of its own services. Many jurisdictions have introduced sustainable procurement rules that provide broad guidance of the considerations an entity should undertake when considering the procurement of a new product or service. Exploring the digitization of other government functions will contribute to how a government might reduce the climate impacts of its operations. The government should review existing digitized services and identifying opportunities for optimization, while also exploring how digital technologies might be deployed to accelerate sustainability outcomes. Sustainable digital services are designed, developed, and operated in a way that minimizes their impact on the environment while still meeting business goals and user needs. These services are designed to support sustainability goals by reducing energy consumption, reducing carbon emissions, minimizing waste, and promoting resource efficiency. In some jurisdictions, there are specific targets to meet.",
+               "choices":[
+                  {
+                     "id":"SUS_1_1",
+                     "title":"Document the public and governmental sustainability reporting mechanisms.",
+                     "helpfulResource":{
+                        "displayText":"Document the sustainability reporting, targets, and policies that not only reduce resource usage for the government customer, but also across the sector and nationally."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to consider public sustainability performance reporting in their forward planning for the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_1_2",
+                     "title":"Minimize duplication of computing power where possible.",
+                     "helpfulResource":{
+                        "displayText":"Leverage and enable reusable environments, patterns, and marketplaces as a way to minimize duplication of computing power."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to minimize computing power where possible in the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_1_3",
+                     "title":"Share best sustainability practice across the jurisdiction/sector.",
+                     "helpfulResource":{
+                        "displayText":"Use cross-agency, cross-jurisdiction, and cross-sector collaboration to identify and learn from examples of similar problems in other areas."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to engage with jurisdictional sustainability practices throughout the delivery of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_1_4",
+                     "title":"Identify sharable data where appropriate, internal and external.",
+                     "helpfulResource":{
+                        "displayText":"Sharing data proactively can reduce system inefficiencies. Explore the data, APIs, and tools that could be leveraged by other government departments, the broader economy and the community to spur the scaling of digital government applications."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to include data and/or insights sharing in the architectural design.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_1_5",
+                     "title":"Identify sustainability policies relevant to the organization.",
+                     "helpfulResource":{
+                        "displayText":"Identify and document any sustainable procurement guidelines or policies that a jurisdiction might have to adopt, such as the Green Public Procurement in the EU."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Encourage the organization to understand and adopt relevant sustainability policies in the design, delivery and management of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SUS_2",
+               "title":"What design choices have been made to include sustainability policy outcomes and reporting requirements?",
+               "description":"Ensure that jurisdictional sustainability goals that go beyond the resource and computing considerations of SUS 1 are considered in the design, delivery and operating models of the service.",
+               "choices":[
+                  {
+                     "id":"SUS_2_1",
+                     "title":"Identify and design/deliver inclusively of jurisdictional sustainability goals.",
+                     "helpfulResource":{
+                        "displayText":"Verify that national sustainability goals and reporting are built in from the beginning, or have a funded plan to have them created over time."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Identify if broader sustainability goals are relevant to the service and how.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_2_2",
+                     "title":"Leverage contextual design methods, like life journey based service design.",
+                     "helpfulResource":{
+                        "displayText":"Take a holistic view of the user journey using modes, such as life events or user journeys, to consider streamlining and sustainability opportunities while producing a more integrated and improved customer experience by reducing duplication and consolidating services."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Identify the end user context/journey as a means to identifying opportunities to consolidate or reduce duplication of resourcing.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_2_3",
+                     "title":"Minimize physical impact of services, such as printing.",
+                     "helpfulResource":{
+                        "displayText":"Design services so that they can be completed end to end digitally to reduce the need for printing documents and eliminate the need for physical signatures or documents."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use end to end service design to minimize physical printing and environmental impacts of the service.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SUS_3",
+               "title":"How might this solution be built to be extendable to other opportunities in the future?",
+               "description":"Designing the service to be easily extendable, reusable and repeatable in the future creates opportunities to reduce the cost, effort and computing impact of future services.",
+               "choices":[
+                  {
+                     "id":"SUS_3_1",
+                     "title":"Leverage automation and virtualization where possible.",
+                     "helpfulResource":{
+                        "displayText":"Explore the opportunity to deploy digital technologies by rethinking existing processes that might improve operational efficiencies, for example, using smart technologies to manage built environments."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Plan around maximum virtualization of services and where components might be made available as a utility for ease of reuse.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  },
+                  {
+                     "id":"SUS_3_2",
+                     "title":"Consider opportunities to produce more sustainable outcomes, including in physical infrastructure.",
+                     "helpfulResource":{
+                        "displayText":"Consider new technologies, such as IoT, digital twins, simulations, AI analysis and modelling to support more sustainable systems, decision making, and services."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to identify opportunities to leverage sensor and modelling technologies in the service, where appropriate.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/government-lens/resources-5.html"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"GL_SO",
+         "name":"Service Outcomes for Government",
+         "questions":[
+            {
+               "id":"SO_1",
+               "title":"Identify the policy or purpose of this service with measurable success criteria.",
+               "description":"Most systems and services traditionally only measure operational performance (such as uptime, and the number of concurrent users) and efficiency (such as cost per transaction, staying within budget, and revenue). In the case of government systems and services, it’s increasingly important to understand how effective a system is regardless of its performance or efficiency. Service effectiveness measurement could include both the policy and purpose measures, and the ongoing human impact measures.",
+               "choices":[
+                  {
+                     "id":"SO_1_1",
+                     "title":"Document the intended policy outcomes of the service.",
+                     "helpfulResource":{
+                        "displayText":"Every service is meant to deliver on some form of policy outcome. The purpose or intention of a system or service might be found in government policy, legislation, regulation, the mission or mandate of a department or ministry, or perhaps even in the constitutional foundations of that government. Whatever the intended policy outcome, relevant metrics and indicators should be identified which the system or service needs to measure and monitor in order to demonstrate the policy effectiveness of the system or service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to identify the policy outcomes, and build these into the design, delivery and operations of the service."
+                     }
+                  },
+                  {
+                     "id":"SO_1_2",
+                     "title":"Document the intended human outcomes and impacts of the service.",
+                     "helpfulResource":{
+                        "displayText":"Because government services can affect a large percentage of the population, and because these services are often either unavoidable or required, it’s important to identify some baseline quality of life measurements to measure and monitor for unintended impacts (such as harm) on people and communities. For example, monitoring known quality of life measures, such as health indicators, employment, homelessness, and household debt, and constantly seeking unknown patterns of impacts of specific cohorts. The monitoring needs to be as close to real time as possible for effective remediation, which is enabled by data sharing and federated data models with the cloud. This helps grow and maintain public trust and confidence in government systems and services, and also helps verify that any unintended harm from a system or service is able to be quickly identified and mitigated."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to identify the intended human/community outcomes, build these into the design, delivery and operations of the service, and enable as close to real time monitoring and escalation as possible."
+                     }
+                  },
+                  {
+                     "id":"SO_1_3",
+                     "title":"Establish mechanisms to measure, monitor, and escalate trends or patterns of policy or human impacts.",
+                     "helpfulResource":{
+                        "displayText":"Ensure that your service measurement infrastructure includes policy and human outcomes measurement and monitoring, with deviations or divergent trends being escalated in the same way that security or performance issues are escalated, and enable real-time response to change and unintended impacts. Policy impacts might include the target measures and metrics of the relevant policy. Intended human impacts might include quality of life measures like positive housing, health, or well-being outcomes for that person and their family as a result of the service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to establish an adaptive and continuous improvement operating model, that can detect and escalate issues effectively to resolution."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SO_2",
+               "title":"Identify and test multiple ways to meet the desired outcome.",
+               "description":"Ensure that service concepts are tested with end users prior to finalizing the solution or architecture, and well before starting to build.",
+               "choices":[
+                  {
+                     "id":"SO_2_1",
+                     "title":"Produce (or contribute to) a service Discovery report with concept testing outcomes.",
+                     "helpfulResource":{
+                        "displayText":"Verify that each service includes a discovery phase to describe the problem or opportunity space, and explore and test with end users a variety of concepts before heading into prototyping or solution design and architecture. Document the concepts, the results of user testing, and the resulting preferred solutions with rationale."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Leverage or feed into the Service Design Discovery phase/methodology."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SO_3",
+               "title":"Identify the user needs and measures for service success.",
+               "description":"Identifying user needs help inform the design, delivery and operating model for a government service. Clear definition of success is also critical to ensuring the service meets the policy and program needs of the organization.",
+               "choices":[
+                  {
+                     "id":"SO_3_1",
+                     "title":"Document the user needs and measures for success.",
+                     "helpfulResource":{
+                        "displayText":"Government services that a person or business interact with should also measure the user outcomes and satisfaction of the service. User outcomes: Identify what done is for a user, and measure it to verify that the service is delivering as expected outcomes for users. For example, a service might intend to support people to live at home longer, reducing the pressure on aged care services. Or a service might be intended to alleviate the costs of living. For User satisfaction: A combination of measures should be used to monitor and measure the end-user experience of the service, whether that user is a citizen, resident, refugee, a business, or even an internal team. Customer experience (CX) measures expectations using polling and other tools to verify that the user experience of the system or service is good. Government services are different from those in the private sector as the end user might not have a choice and must interact with the service (for example, tax, social support, and emergency services). User satisfaction isn’t just about CX, it’s also about whether the service meets the public expectations for that government system or service."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Work closely with the organization's service design, customer experience and policy experts."
+                     }
+                  },
+                  {
+                     "id":"SO_3_2",
+                     "title":"Document how the service has been designed inclusively.",
+                     "helpfulResource":{
+                        "displayText":"Demonstrate and document how the service was designed and tested with a diverse variety of users that represent the needs of the population, and that there are multiple channels supported that take into account different access requirements."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to consider and test for diversity of needs and access in the design and management of the service."
+                     }
+                  },
+                  {
+                     "id":"SO_3_3",
+                     "title":"Document how the public have been engaged, where appropriate.",
+                     "helpfulResource":{
+                        "displayText":"Ideally, the government customer would be engaging with the general public on the reporting, design, delivery, and operational transparency of the service to grow and maintain public trust, confidence, and perceived legitimacy of the system or service, and AWS can encourage and support this approach. Engagement with the public is also useful to design and test a range of public feedback mechanisms to verify that the continuous improvement of the service over time aligns with changing public needs. Citizen participation is increasingly expected through novel forms of public engagement and participation in the design, delivery, and governance of policies and services."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to use public feedback tools, sentiment analysis, surveying, user research and user testing."
+                     }
+                  },
+                  {
+                     "id":"SO_3_4",
+                     "title":"Identify and document the cultural context of the service.",
+                     "helpfulResource":{
+                        "displayText":"Every government organization serves the public, so understanding the cultural context of the service is important to inform the architecture, design, needs, and what it would take for the service to be considered welcoming and dignified. As part of this, it’s helpful to consider both the demographic range of cultural needs, as well as the Indigenous and First Nations cultural context and needs, which will be different in every country."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to consider cultural contexts in the design, delivery, operations and governance of the service."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"SO_4",
+               "title":"Identify the special requirements of the government customer for this service.",
+               "description":"Most government organizations have special requirements required for their jurisdiction.",
+               "choices":[
+                  {
+                     "id":"SO_4_1",
+                     "title":"Document and understand the portfolio and jurisdictional policy context of the government customer.",
+                     "helpfulResource":{
+                        "displayText":"All systems administered by public institutions need to be compliant with and supportive of the jurisdictional context (the constitutional and whole of government framework of that government) and of the portfolio context (the specific legislative or regulatory responsibilities of that department). Building in or documenting this context should be done in early stages to inform and influence design, architecture, and delivery.  Understanding these can help you to hone in on the special obligations, responsibilities, and mission of your government customer, and to engage in conversations about what success looks like, so you can demonstrably and measurably design and deliver in accordance with the jurisdictional and portfolio context of your customer. A portfolio mandate might include things such as the Social Security Act. A jurisdictional mandate might include the Constitution, or legislation that applies to the whole jurisdiction of a government customer, at a federal, state, or local level, like the Privacy Act. This might also include policy requirements like whether the service must consider open-source options first (a requirement in the UK Government), or whether there are architectural standards or Indigenous engagement or procurement requirements (a requirement in the New Zealand Government)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Work closely with the organization's policy experts to understand and document the jurisdictional policy context of the service."
+                     }
+                  },
+                  {
+                     "id":"SO_4_2",
+                     "title":"Document how the service will meet public transparency and appeal-ability requirements.",
+                     "helpfulResource":{
+                        "displayText":"How will your service provide ease of citizens’ and Parliamentary access to information on service delivery, performance, reporting, explanations, and ease of avenues to appeal? Most governments have transparency requirements, such as publishing certain types of data, public reporting of metrics, and annual reports, so identifying the transparency and open government requirements for the customer is also important."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to identify their transparency and appeals mechanisms for the service."
+                     }
+                  },
+                  {
+                     "id":"SO_4_3",
+                     "title":"Align with compliance with the jurisdictional equivalent of Administrative Law.",
+                     "helpfulResource":{
+                        "displayText":"In all governments, there are rules that govern how the public sector has to operate. For example, in Westminster-based governments, all systems and processes need to comply with the principles of Administrative Law and Rule of Law, which requires among other things, that decision making is explainable, accountable, appealable, consistent with the law, and consistently applied. Alternatively, if you can't explain a decision, you should at least be able to validate that it’s legally compliant. High-integrity records keeping is also critical. A service can be beautifully designed, architected, delivered, and operating perfectly, but if it isn’t demonstrably lawful or considered legitimate in the context of government, then it creates significant issues for the government organization and for the public, resulting in public distrust. Ideally, a modern government service should be auditable in real time, and have governance that assures oversight and escalation of issues as they emerge."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Support the organization to align to the legal context of the service."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
