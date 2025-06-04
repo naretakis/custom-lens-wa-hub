@@ -53,7 +53,7 @@
             },
             {
               "condition": "enrollment_efficiency_1 && (enrollment_efficiency_2 || enrollment_efficiency_3)",
-              "risk": "LOW_RISK"
+              "risk": "MEDIUM_RISK"
             },
             {
               "condition": "enrollment_efficiency_1",
