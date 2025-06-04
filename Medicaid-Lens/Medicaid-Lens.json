@@ -1,47 +1,538 @@
 {
   "schemaVersion": "2021-11-01",
-  "name": "Replace with lens name",
-  "description": "Replace with your description",
+  "name": "Medicaid Provider Systems Lens",
+  "description": "This lens helps evaluate Medicaid Provider systems across enrollment, management, and termination capabilities, aligned with CMS-Required outcomes and federal regulations.",
   "pillars": [
     {
-      "id": "pillar_id_1",
-      "name": "Pillar 1",
+      "id": "provider_enrollment",
+      "name": "Provider Enrollment",
       "questions": [
         {
-          "id": "pillar_1_q1",
-          "title": "My first question",
-          "description": "Describes the question in more detail. The description can be up to 2048 characters.",
+          "id": "provider_enrollment_q1",
+          "title": "How efficiently are providers enrolled in the Medicaid program?",
+          "description": "Provider enrollment efficiency is critical for ensuring timely access to care for beneficiaries. This question evaluates the enrollment process from application submission to approval, including screening, validation, and decision-making. This aligns with CMS-Required outcomes PM1 (Application).",
           "choices": [
             {
-              "id": "choice1",
-              "title": "Best practice #1",
+              "id": "enrollment_efficiency_1",
+              "title": "The enrollment process is fully electronic with automated validation and workflow management",
               "helpfulResource": {
-                "displayText": "It's recommended that you include a helpful resource text and URL for each choice for your users.",
-                "url": "https://aws.amazon.com"
+                "displayText": "Implementing a fully electronic enrollment process with automated validation can significantly reduce processing time and improve accuracy.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/affordable-care-act-program-integrity-provisions/index.html"
               },
               "improvementPlan": {
-                "displayText": "You must have improvement plans per choice. It's optional whether or not to have a corresponding URL."
+                "displayText": "Implement a fully electronic enrollment system with automated validation against required databases, workflow management, and status tracking capabilities."
               }
             },
             {
-              "id": "choice2",
-              "title": "Best practice #2",
+              "id": "enrollment_efficiency_2",
+              "title": "The enrollment process includes parallel processing of verification steps where possible",
               "helpfulResource": {
-                "displayText": "It's recommended that you include a helpful resource text and URL for each choice for your users.",
-                "url": "https://aws.amazon.com"
+                "displayText": "Parallel processing of verification steps can reduce overall enrollment timeframes by eliminating unnecessary sequential dependencies.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
               },
               "improvementPlan": {
-                "displayText": "You must have improvement plans per choice. It's optional whether or not to have a corresponding URL."
+                "displayText": "Redesign the enrollment workflow to identify verification steps that can be processed in parallel rather than sequentially."
+              }
+            },
+            {
+              "id": "enrollment_efficiency_3",
+              "title": "The system provides self-service status checking for providers",
+              "helpfulResource": {
+                "displayText": "Self-service status checking reduces administrative burden and improves provider satisfaction with the enrollment process.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement a secure provider portal that allows applicants to check their enrollment status and respond to requests for additional information."
               }
             }
           ],
           "riskRules": [
             {
-              "condition": "choice1 && choice2",
+              "condition": "enrollment_efficiency_1 && enrollment_efficiency_2 && enrollment_efficiency_3",
               "risk": "NO_RISK"
             },
             {
-              "condition": "choice1 && !choice2",
+              "condition": "enrollment_efficiency_1 && (enrollment_efficiency_2 || enrollment_efficiency_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "enrollment_efficiency_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_enrollment_q2",
+          "title": "How effectively does the enrollment process validate provider credentials?",
+          "description": "Effective validation of provider credentials is essential for program integrity. This question evaluates the systems and processes used to verify provider information against authoritative sources. This aligns with CMS-Required outcomes PM2-3 (Screening) and PM10 (External Systems Checks).",
+          "choices": [
+            {
+              "id": "credential_validation_1",
+              "title": "The system automatically checks required federal databases (LEIE, EPLS, NPPES, Death Master File)",
+              "helpfulResource": {
+                "displayText": "Federal regulations require checking specific databases during provider enrollment and revalidation.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.436"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated checks against all required federal databases with clear reporting of results and issues."
+              }
+            },
+            {
+              "id": "credential_validation_2",
+              "title": "The system verifies state licensure status in real-time or near real-time",
+              "helpfulResource": {
+                "displayText": "Real-time verification of licensure status helps prevent enrollment of providers with expired or restricted licenses.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.412"
+              },
+              "improvementPlan": {
+                "displayText": "Establish real-time interfaces with state licensing boards to verify current license status and any limitations."
+              }
+            },
+            {
+              "id": "credential_validation_3",
+              "title": "The system supports risk-based screening with appropriate levels of scrutiny",
+              "helpfulResource": {
+                "displayText": "Federal regulations require assigning risk levels (limited, moderate, high) to provider types and applying appropriate screening measures.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.450"
+              },
+              "improvementPlan": {
+                "displayText": "Implement risk-based screening protocols that adjust verification requirements based on provider risk level."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "credential_validation_1 && credential_validation_2 && credential_validation_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "credential_validation_1 && (credential_validation_2 || credential_validation_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "credential_validation_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_enrollment_q3",
+          "title": "How does the system track and manage provider revalidation cycles?",
+          "description": "Federal regulations require revalidation of all providers at least every five years. This question evaluates the systems and processes used to track revalidation cycles and ensure timely completion. This aligns with CMS-Required outcome PM4 (Revalidation).",
+          "choices": [
+            {
+              "id": "revalidation_1",
+              "title": "The system automatically tracks the five-year revalidation cycle for all providers",
+              "helpfulResource": {
+                "displayText": "Automated tracking of revalidation cycles helps ensure compliance with federal requirements.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.414"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated tracking of provider enrollment periods with alerts for upcoming revalidation deadlines."
+              }
+            },
+            {
+              "id": "revalidation_2",
+              "title": "The system generates notifications to providers in advance of revalidation deadlines",
+              "helpfulResource": {
+                "displayText": "Proactive notifications help ensure timely revalidation and reduce lapses in enrollment.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Configure the system to send automated notifications to providers at defined intervals before revalidation deadlines."
+              }
+            },
+            {
+              "id": "revalidation_3",
+              "title": "The system supports streamlined revalidation processes that minimize provider burden",
+              "helpfulResource": {
+                "displayText": "Streamlined revalidation processes improve provider satisfaction and compliance rates.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement pre-populated revalidation forms and simplified verification for providers with good compliance history."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "revalidation_1 && revalidation_2 && revalidation_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "revalidation_1 && (revalidation_2 || revalidation_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "revalidation_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "provider_management",
+      "name": "Provider Management",
+      "questions": [
+        {
+          "id": "provider_management_q1",
+          "title": "How effectively is provider information maintained and updated?",
+          "description": "Maintaining current and accurate provider information is essential for program integrity and beneficiary access to care. This question evaluates the systems and processes used to update and verify provider information. This aligns with CMS-Required outcome PM20 (Change in Circumstances).",
+          "choices": [
+            {
+              "id": "info_maintenance_1",
+              "title": "The system allows providers to update their information through a self-service portal",
+              "helpfulResource": {
+                "displayText": "Self-service capabilities improve data currency and reduce administrative burden.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement a secure provider portal that allows providers to update their information with appropriate validation."
+              }
+            },
+            {
+              "id": "info_maintenance_2",
+              "title": "The system validates updated information against authoritative sources",
+              "helpfulResource": {
+                "displayText": "Validation against authoritative sources helps maintain data quality and program integrity.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated validation of provider updates against appropriate external databases and sources."
+              }
+            },
+            {
+              "id": "info_maintenance_3",
+              "title": "The system tracks and reports on provider information currency and completeness",
+              "helpfulResource": {
+                "displayText": "Monitoring data currency and completeness helps identify areas for improvement.",
+                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement data quality monitoring with metrics for currency, completeness, and accuracy of provider information."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "info_maintenance_1 && info_maintenance_2 && info_maintenance_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "info_maintenance_1 && (info_maintenance_2 || info_maintenance_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "info_maintenance_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_management_q2",
+          "title": "How accessible and accurate is the provider directory for beneficiaries?",
+          "description": "Provider directories are essential tools for beneficiaries to find appropriate care. This question evaluates the accessibility, accuracy, and functionality of provider directories. This aligns with CMS-Required outcome PM21 (Directory).",
+          "choices": [
+            {
+              "id": "directory_1",
+              "title": "The provider directory is available online with search capabilities",
+              "helpfulResource": {
+                "displayText": "Online searchable directories improve beneficiary access to provider information.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-A/section-438.10"
+              },
+              "improvementPlan": {
+                "displayText": "Implement an online provider directory with comprehensive search capabilities accessible to beneficiaries."
+              }
+            },
+            {
+              "id": "directory_2",
+              "title": "The provider directory is updated at least monthly",
+              "helpfulResource": {
+                "displayText": "Regular updates help ensure directory accuracy and usefulness.",
+                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Establish processes for regular updates to the provider directory with clear data refresh schedules."
+              }
+            },
+            {
+              "id": "directory_3",
+              "title": "The provider directory includes all required information (specialties, languages, accessibility, etc.)",
+              "helpfulResource": {
+                "displayText": "Comprehensive provider information helps beneficiaries make informed choices.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-A/section-438.10"
+              },
+              "improvementPlan": {
+                "displayText": "Enhance the provider directory to include all required information elements and validate completeness."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "directory_1 && directory_2 && directory_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "directory_1 && (directory_2 || directory_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "directory_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_management_q3",
+          "title": "How well does the system support network adequacy monitoring and reporting?",
+          "description": "Network adequacy ensures beneficiaries have appropriate access to care. This question evaluates the systems and processes used to monitor and report on network adequacy. This aligns with CMS-Required outcome PM14 (Network Adequacy).",
+          "choices": [
+            {
+              "id": "network_adequacy_1",
+              "title": "The system can generate network adequacy reports based on federal and state requirements",
+              "helpfulResource": {
+                "displayText": "Automated reporting capabilities help ensure compliance with network adequacy requirements.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.68"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated network adequacy reporting capabilities aligned with federal and state requirements."
+              }
+            },
+            {
+              "id": "network_adequacy_2",
+              "title": "The system supports geospatial analysis of provider networks",
+              "helpfulResource": {
+                "displayText": "Geospatial analysis helps identify gaps in provider coverage and access issues.",
+                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement geospatial analysis capabilities to evaluate provider network coverage and identify gaps."
+              }
+            },
+            {
+              "id": "network_adequacy_3",
+              "title": "The system can identify network gaps and support targeted provider recruitment",
+              "helpfulResource": {
+                "displayText": "Proactive identification of network gaps helps improve beneficiary access to care.",
+                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enhance network adequacy monitoring with gap analysis and targeted provider recruitment capabilities."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "network_adequacy_1 && network_adequacy_2 && network_adequacy_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "network_adequacy_1 && (network_adequacy_2 || network_adequacy_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "network_adequacy_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "provider_termination",
+      "name": "Provider Termination",
+      "questions": [
+        {
+          "id": "provider_termination_q1",
+          "title": "How effectively are provider terminations managed?",
+          "description": "Effective termination management is essential for program integrity. This question evaluates the systems and processes used to manage provider terminations. This aligns with CMS-Required outcome PM5 (Termination).",
+          "choices": [
+            {
+              "id": "termination_mgmt_1",
+              "title": "The system supports automated termination based on specific conditions defined in regulations",
+              "helpfulResource": {
+                "displayText": "Automated termination helps ensure compliance with federal requirements for mandatory termination conditions.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.416"
+              },
+              "improvementPlan": {
+                "displayText": "Implement business rules to automatically identify and process terminations based on regulatory conditions."
+              }
+            },
+            {
+              "id": "termination_mgmt_2",
+              "title": "The system tracks and categorizes termination reasons",
+              "helpfulResource": {
+                "displayText": "Tracking termination reasons helps identify trends and support program integrity efforts.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enhance termination tracking with standardized reason codes and reporting capabilities."
+              }
+            },
+            {
+              "id": "termination_mgmt_3",
+              "title": "The system generates appropriate termination notices to providers",
+              "helpfulResource": {
+                "displayText": "Clear communication of termination decisions is essential for due process.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated generation of termination notices with appropriate content based on termination reason."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "termination_mgmt_1 && termination_mgmt_2 && termination_mgmt_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "termination_mgmt_1 && (termination_mgmt_2 || termination_mgmt_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "termination_mgmt_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_termination_q2",
+          "title": "How well does the system support the provider appeals process?",
+          "description": "Providers have the right to appeal termination decisions. This question evaluates the systems and processes used to manage provider appeals. This aligns with CMS-Required outcome PM7 (Appeal).",
+          "choices": [
+            {
+              "id": "appeals_1",
+              "title": "The system tracks appeal submissions and status",
+              "helpfulResource": {
+                "displayText": "Effective tracking of appeals helps ensure timely resolution and due process.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.422"
+              },
+              "improvementPlan": {
+                "displayText": "Implement appeal tracking capabilities with status monitoring and reporting."
+              }
+            },
+            {
+              "id": "appeals_2",
+              "title": "The system supports documentation of appeal decisions and rationale",
+              "helpfulResource": {
+                "displayText": "Documenting appeal decisions helps ensure consistency and supports potential legal review.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enhance appeal management with structured documentation of decisions and supporting rationale."
+              }
+            },
+            {
+              "id": "appeals_3",
+              "title": "The system generates appropriate notifications throughout the appeals process",
+              "helpfulResource": {
+                "displayText": "Clear communication during the appeals process is essential for due process.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated notifications for key milestones in the appeals process."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "appeals_1 && appeals_2 && appeals_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "appeals_1 && (appeals_2 || appeals_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "appeals_1",
+              "risk": "MEDIUM_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "provider_termination_q3",
+          "title": "How effectively does the system share termination information with other states and Medicare?",
+          "description": "Sharing termination information helps prevent terminated providers from enrolling in other programs. This question evaluates the systems and processes used to share termination information. This aligns with CMS-Required outcome PM15 (Sanctions and Terminations).",
+          "choices": [
+            {
+              "id": "info_sharing_1",
+              "title": "The system reports termination information to appropriate federal databases",
+              "helpfulResource": {
+                "displayText": "Reporting to federal databases helps prevent terminated providers from enrolling in other programs.",
+                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.416"
+              },
+              "improvementPlan": {
+                "displayText": "Implement automated reporting of termination information to appropriate federal databases."
+              }
+            },
+            {
+              "id": "info_sharing_2",
+              "title": "The system receives and processes termination information from other states and Medicare",
+              "helpfulResource": {
+                "displayText": "Processing external termination information helps prevent enrollment of providers terminated by other programs.",
+                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement capabilities to receive and process termination information from other states and Medicare."
+              }
+            },
+            {
+              "id": "info_sharing_3",
+              "title": "The system automatically identifies providers who have been terminated by other programs",
+              "helpfulResource": {
+                "displayText": "Automated identification helps prevent enrollment of providers terminated by other programs.",
+                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enhance screening processes to automatically identify providers terminated by other programs."
+              }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "info_sharing_1 && info_sharing_2 && info_sharing_3",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "info_sharing_1 && (info_sharing_2 || info_sharing_3)",
+              "risk": "LOW_RISK"
+            },
+            {
+              "condition": "info_sharing_1",
               "risk": "MEDIUM_RISK"
             },
             {

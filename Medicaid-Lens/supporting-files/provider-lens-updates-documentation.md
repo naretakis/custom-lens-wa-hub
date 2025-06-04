@@ -59,3 +59,43 @@ The updates ensure that each file correctly reflects its specific capability are
 - PM7: Appeal
 - PM15: Sanctions and Terminations
 - PM18: Payment Suspension
+
+## Latest Update - Medicaid-Lens.json Creation
+
+### Prompt
+```
+Your task is to create a v1 of a custom AWS WA Custom Lens for Medicaid. To do this, please review @workspace for context, and then examine the `Medicaid-Lens` folder wherein there is template version of `Medicaid-Lens.json`. Please use the files in the `supporting-files` folder for the Medicaid Provider system to create a v1 of the `Medicaid-Lens.json`
+```
+
+### Changes Made
+
+Created the v1 of the Medicaid-Lens.json file for the AWS Well-Architected Custom Lens with the following structure:
+
+1. **Overall Structure**:
+   - Created a custom lens with three pillars representing the Provider capability areas: Provider Enrollment, Provider Management, and Provider Termination
+   - Named the lens "Medicaid Provider Systems Lens" with an appropriate description
+
+2. **Provider Enrollment Pillar**:
+   - Created three key questions focused on enrollment efficiency, credential validation, and revalidation management
+   - Each question includes three best practices as choices
+   - Added risk rules to evaluate compliance levels
+   - Aligned questions with CMS-Required outcomes (PM1, PM2-3, PM4, PM6, PM8-13)
+
+3. **Provider Management Pillar**:
+   - Created three key questions focused on information maintenance, provider directory, and network adequacy
+   - Each question includes three best practices as choices
+   - Added risk rules to evaluate compliance levels
+   - Aligned questions with CMS-Required outcomes (PM14, PM16, PM17, PM19, PM20, PM21)
+
+4. **Provider Termination Pillar**:
+   - Created three key questions focused on termination management, appeals process, and information sharing
+   - Each question includes three best practices as choices
+   - Added risk rules to evaluate compliance levels
+   - Aligned questions with CMS-Required outcomes (PM5, PM7, PM15, PM18)
+
+Each question in the lens includes:
+- Detailed descriptions explaining the importance of the topic
+- Best practices as selectable choices
+- Helpful resources with URLs to relevant regulations and guidance
+- Improvement plans for each choice
+- Risk rules to evaluate the overall risk level based on selected choices
