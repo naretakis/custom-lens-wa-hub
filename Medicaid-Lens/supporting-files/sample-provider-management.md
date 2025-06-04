@@ -1,6 +1,6 @@
 ---
 capabilityDomain: Provider
-capabilityArea: Provider Enrollment
+capabilityArea: Provider Management
 version: 1.1
 capabilityAreaCreated: 2025-02-02
 capabilityAreaLastUpdated: 2025-02-03
@@ -13,9 +13,9 @@ assessmentStatus: in-progress
 
 The Provider capability domain encompasses three related areas; Provider Enrollment, Provider Management, and Provider Termination. 
 
-## Capability Area: Provider Enrollment
+## Capability Area: Provider Management
 
-Provider Enrollment encompasses the processes and systems used to register healthcare providers in the Medicaid program, including application processing, screening, verification, and enrollment decisions.
+Provider Management encompasses the processes and systems used to maintain current provider information, support provider communications, monitor network adequacy, and ensure ongoing compliance with Medicaid program requirements. This capability area aligns with CMS-Required outcomes PM14 (Network Adequacy), PM16 (Notices and Communications), PM17 (Fraud), PM19 (Agreements and Disclosures), PM20 (Change in Circumstances), and PM21 (Directory).
 
 ## Outcomes
 
@@ -23,26 +23,29 @@ Provider Enrollment encompasses the processes and systems used to register healt
 The Outcomes dimension focuses on the results and effectiveness of the provider enrollment process.
 
 ### Assessment Questions
-1. How efficiently are providers enrolled in the Medicaid program?
-2. What percentage of applications are processed within standard timeframes?
-3. How effectively does the enrollment process validate provider credentials?
+1. How effectively is provider information maintained and updated?
+2. How accessible and accurate is the provider directory for beneficiaries?
+3. How well does the system support network adequacy monitoring and reporting?
+4. How effectively are provider communications managed?
+5. What mechanisms are in place to monitor and report potential fraud?
+6. How are provider agreements and disclosures managed and monitored?
 
 ### Maturity Level Definitions
 
 #### Level 1: Initial
-Manual provider enrollment process with paper-based applications and limited validation of provider information.
+Manual provider information management with paper-based updates and limited provider directory functionality. Basic network adequacy reporting with minimal automation. Limited provider communication capabilities.
 
 #### Level 2: Repeatable
-Basic online enrollment forms with some automated validation, though manual review is still required for most applications.
+Basic online provider information management with some automated validation. Static provider directory with periodic updates. Standard network adequacy reporting with some automation. Basic provider communication templates and tracking.
 
 #### Level 3: Defined
-Fully electronic enrollment process with automated validation against multiple sources and self-service status checking.
+Fully electronic provider information management with automated validation and change tracking. Searchable provider directory with regular updates. Automated network adequacy monitoring and reporting. Comprehensive provider communication system with notification tracking.
 
 #### Level 4: Managed
-Intelligent workflow with predictive analytics, real-time credential verification, and automated risk assessment.
+Intelligent provider information management with proactive data quality monitoring. Dynamic provider directory with near real-time updates. Advanced network adequacy analytics with predictive modeling. Multi-channel provider communication system with performance analytics.
 
 #### Level 5: Optimized
-Continuous monitoring and revalidation with cross-program enrollment coordination and adaptive enrollment requirements based on provider risk.
+Continuous provider information monitoring with automated verification against external sources. Real-time provider directory with location-based search and quality indicators. Comprehensive network adequacy management with automated interventions. Personalized provider communication system with engagement analytics and optimization.
 
 ## Roles
 

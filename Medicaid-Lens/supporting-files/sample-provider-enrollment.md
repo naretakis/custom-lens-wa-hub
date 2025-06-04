@@ -15,7 +15,7 @@ The Provider capability domain encompasses three related areas; Provider Enrollm
 
 ## Capability Area: Provider Enrollment
 
-Provider Enrollment encompasses the processes and systems used to register healthcare providers in the Medicaid program, including application processing, screening, verification, and enrollment decisions.
+Provider Enrollment encompasses the processes and systems used to register healthcare providers in the Medicaid program, including application processing, screening, verification, and enrollment decisions. This capability area aligns with CMS-Required outcomes PM1 (Application), PM2-3 (Screening), PM4 (Revalidation), PM6 (Reactivation), PM8-13 (Site Visits, Background Checks, External Systems Checks, Risk Level Assignment, Application Fees, Moratoria).
 
 ## Outcomes
 
@@ -26,23 +26,26 @@ The Outcomes dimension focuses on the results and effectiveness of the provider 
 1. How efficiently are providers enrolled in the Medicaid program?
 2. What percentage of applications are processed within standard timeframes?
 3. How effectively does the enrollment process validate provider credentials?
+4. How does the system track and manage provider revalidation cycles?
+5. How are provider risk levels assigned and managed during enrollment?
+6. What mechanisms are in place to verify provider information against external databases?
 
 ### Maturity Level Definitions
 
 #### Level 1: Initial
-Manual provider enrollment process with paper-based applications and limited validation of provider information.
+Manual provider enrollment process with paper-based applications and limited validation of provider information. No systematic approach to screening against federal databases or tracking revalidation requirements.
 
 #### Level 2: Repeatable
-Basic online enrollment forms with some automated validation, though manual review is still required for most applications.
+Basic online enrollment forms with some automated validation, though manual review is still required for most applications. Basic screening against required databases (LEIE, EPLS, NPPES, Death Master File) with manual tracking of revalidation cycles.
 
 #### Level 3: Defined
-Fully electronic enrollment process with automated validation against multiple sources and self-service status checking.
+Fully electronic enrollment process with automated validation against multiple sources and self-service status checking. Automated screening against all required federal databases with systematic tracking of the five-year revalidation cycle. Risk-based screening protocols implemented according to federal requirements.
 
 #### Level 4: Managed
-Intelligent workflow with predictive analytics, real-time credential verification, and automated risk assessment.
+Intelligent workflow with predictive analytics, real-time credential verification, and automated risk assessment. Proactive management of revalidation cycles with automated notifications and tracking. Advanced risk-based screening with automated adjustment of provider risk levels based on program integrity factors.
 
 #### Level 5: Optimized
-Continuous monitoring and revalidation with cross-program enrollment coordination and adaptive enrollment requirements based on provider risk.
+Continuous monitoring and revalidation with cross-program enrollment coordination and adaptive enrollment requirements based on provider risk. Real-time monitoring of provider status changes across federal and state databases with automated alerts for potential issues. Dynamic risk assessment that adapts to emerging program integrity concerns.
 
 ## Roles
 
