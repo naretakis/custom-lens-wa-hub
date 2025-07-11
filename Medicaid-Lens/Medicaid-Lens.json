@@ -1,547 +1,483 @@
 {
-  "schemaVersion": "2021-11-01",
-  "name": "Medicaid Provider Systems Lens",
-  "description": "This lens helps evaluate Medicaid Provider systems across enrollment, management, and termination capabilities, aligned with CMS-Required outcomes and federal regulations.",
-  "pillars": [
-    {
-      "id": "provider_enrollment",
-      "name": "Provider Enrollment",
-      "questions": [
-        {
-          "id": "provider_enrollment_q1",
-          "title": "How efficiently are providers enrolled in the Medicaid program?",
-          "description": "Provider enrollment efficiency is critical for ensuring timely access to care for beneficiaries. This question evaluates the enrollment process from application submission to approval, including screening, validation, and decision-making. This aligns with CMS-Required outcomes PM1 (Application).",
-          "choices": [
+   "schemaVersion":"2021-11-01",
+   "name":"Medicaid Lens",
+   "description":"The Medicaid Well-Architected Lens provides specialized guidance for state Medicaid agencies implementing Medicaid Management Information Systems (MMIS) on AWS. This lens addresses CMS certification requirements, modular architecture mandates, beneficiary experience standards, and program integrity requirements specific to Medicaid operations.",
+   "pillars":[
+      {
+         "id":"OPS",
+         "name":"Operational Excellence Pillar for Medicaid",
+         "questions":[
             {
-              "id": "enrollment_efficiency_1",
-              "title": "The enrollment process is fully electronic with automated validation and workflow management",
-              "helpfulResource": {
-                "displayText": "Implementing a fully electronic enrollment process with automated validation can significantly reduce processing time and improve accuracy.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/affordable-care-act-program-integrity-provisions/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement a fully electronic enrollment system with automated validation against required databases, workflow management, and status tracking capabilities."
-              }
+               "id":"OPS_1",
+               "title":"How do you ensure CMS certification readiness and compliance?",
+               "description":"MMIS implementations must meet CMS certification requirements including modular architecture, interoperability standards, and comprehensive documentation for federal approval and ongoing compliance.",
+               "choices":[
+                  {
+                     "id":"OPS_1_1",
+                     "title":"Implement modular MMIS architecture aligned with CMS requirements.",
+                     "helpfulResource":{
+                        "displayText":"Design MMIS modules (eligibility, enrollment, claims processing, provider management, etc.) as independent, interoperable components that can be certified separately and updated without full system recertification."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Adopt microservices architecture with API-first design. Implement service mesh for inter-module communication and establish module-specific deployment pipelines.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/microservices-lens/"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_2",
+                     "title":"Establish comprehensive audit trails and compliance monitoring.",
+                     "helpfulResource":{
+                        "displayText":"Maintain detailed audit logs for all system activities, beneficiary interactions, and administrative actions to support CMS oversight and program integrity requirements."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy AWS CloudTrail, Config, and Security Hub for comprehensive logging. Implement automated compliance reporting and real-time monitoring dashboards.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  },
+                  {
+                     "id":"OPS_1_3",
+                     "title":"Implement standardized APIs for interoperability.",
+                     "helpfulResource":{
+                        "displayText":"Deploy FHIR R4 APIs and HL7 message processing to enable seamless data exchange with healthcare providers, HIEs, and other state systems as required by CMS interoperability mandates."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS API Gateway with FHIR-compliant endpoints. Implement message queuing with SQS/SNS for reliable HL7 message processing.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             },
             {
-              "id": "enrollment_efficiency_2",
-              "title": "The enrollment process includes parallel processing of verification steps where possible",
-              "helpfulResource": {
-                "displayText": "Parallel processing of verification steps can reduce overall enrollment timeframes by eliminating unnecessary sequential dependencies.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Redesign the enrollment workflow to identify verification steps that can be processed in parallel rather than sequentially."
-              }
+               "id":"OPS_2",
+               "title":"How do you manage program adaptability and policy changes?",
+               "description":"Medicaid systems must adapt quickly to policy changes, waiver implementations, and benefit modifications without requiring full system recertification or extended downtime.",
+               "choices":[
+                  {
+                     "id":"OPS_2_1",
+                     "title":"Implement configuration-driven business rules engine.",
+                     "helpfulResource":{
+                        "displayText":"Use externalized business rules and configuration management to enable rapid policy changes without code deployment, supporting state waiver implementations and benefit modifications."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy AWS Systems Manager Parameter Store for configuration management. Implement rules engine using Lambda and Step Functions for policy workflow automation.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/"
+                     }
+                  },
+                  {
+                     "id":"OPS_2_2",
+                     "title":"Establish automated testing and deployment pipelines.",
+                     "helpfulResource":{
+                        "displayText":"Implement CI/CD pipelines with comprehensive testing to enable rapid, reliable deployment of policy changes while maintaining system stability and compliance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS CodePipeline and CodeBuild for automated testing. Implement blue-green deployments with AWS CodeDeploy for zero-downtime updates.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             },
             {
-              "id": "enrollment_efficiency_3",
-              "title": "The system provides self-service status checking for providers",
-              "helpfulResource": {
-                "displayText": "Self-service status checking reduces administrative burden and improves provider satisfaction with the enrollment process.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement a secure provider portal that allows applicants to check their enrollment status and respond to requests for additional information."
-              }
+               "id":"OPS_3",
+               "title":"How do you optimize beneficiary experience across multiple channels?",
+               "description":"Medicaid beneficiaries require consistent, accessible service delivery across web portals, mobile apps, call centers, and in-person interactions, accommodating diverse populations and digital literacy levels.",
+               "choices":[
+                  {
+                     "id":"OPS_3_1",
+                     "title":"Implement omni-channel beneficiary portal with accessibility compliance.",
+                     "helpfulResource":{
+                        "displayText":"Deploy responsive web and mobile applications meeting Section 508 and WCAG 2.1 AA standards, supporting multiple languages and assistive technologies for diverse beneficiary populations."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Amplify for responsive web apps. Implement Amazon Translate for multi-language support and Amazon Polly for text-to-speech accessibility features.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/"
+                     }
+                  },
+                  {
+                     "id":"OPS_3_2",
+                     "title":"Deploy intelligent call center and chat support.",
+                     "helpfulResource":{
+                        "displayText":"Implement AI-powered call routing, automated responses for common inquiries, and seamless escalation to human agents with full context of beneficiary interactions."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy Amazon Connect with Lex chatbots for automated support. Use Amazon Comprehend for sentiment analysis and intelligent routing.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
             }
-          ],
-          "riskRules": [
+         ]
+      },
+      {
+         "id":"SEC",
+         "name":"Security Pillar for Medicaid",
+         "questions":[
             {
-              "condition": "enrollment_efficiency_1 && enrollment_efficiency_2 && enrollment_efficiency_3",
-              "risk": "NO_RISK"
+               "id":"SEC_1",
+               "title":"How do you implement CMS security requirements and program integrity controls?",
+               "description":"MMIS must implement comprehensive security controls including HIPAA compliance, CMS security standards, and program integrity measures to prevent fraud, waste, and abuse while protecting beneficiary data.",
+               "choices":[
+                  {
+                     "id":"SEC_1_1",
+                     "title":"Deploy FIPS 140-2 validated encryption and CMS-compliant security controls.",
+                     "helpfulResource":{
+                        "displayText":"Implement FIPS 140-2 Level 3 validated encryption for all PHI and PII. Deploy security controls meeting CMS ARS (Acceptable Risk Safeguards) requirements and maintain continuous security monitoring."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS KMS with FIPS 140-2 Level 3 validated HSMs. Implement AWS Security Hub with CMS-specific compliance packs and automated remediation.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_2",
+                     "title":"Implement real-time fraud detection and program integrity monitoring.",
+                     "helpfulResource":{
+                        "displayText":"Deploy machine learning-based fraud detection for claims processing, provider billing patterns, and beneficiary utilization anomalies. Maintain real-time monitoring for suspicious activities and automated alerting."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use Amazon Fraud Detector for claims analysis. Implement Amazon SageMaker for custom fraud detection models and Amazon QuickSight for program integrity dashboards.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  },
+                  {
+                     "id":"SEC_1_3",
+                     "title":"Establish comprehensive audit logging and incident response.",
+                     "helpfulResource":{
+                        "displayText":"Maintain immutable audit logs for all system activities, data access, and administrative actions. Implement automated incident response procedures meeting CMS breach notification requirements."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy AWS CloudTrail with log file validation and S3 Object Lock for immutable storage. Use AWS Systems Manager Incident Manager for automated response workflows.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             },
             {
-              "condition": "enrollment_efficiency_1 && (enrollment_efficiency_2 || enrollment_efficiency_3)",
-              "risk": "MEDIUM_RISK"
+               "id":"SEC_2",
+               "title":"How do you manage provider credentialing and sanctions screening?",
+               "description":"MMIS must integrate with provider enrollment systems, maintain real-time sanctions screening, and ensure only qualified, non-sanctioned providers can submit claims and receive payments.",
+               "choices":[
+                  {
+                     "id":"SEC_2_1",
+                     "title":"Implement automated provider enrollment and credentialing verification.",
+                     "helpfulResource":{
+                        "displayText":"Integrate with NPPES, PECOS, and state licensing boards for real-time provider verification. Automate credentialing workflows and maintain provider enrollment status in real-time."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Step Functions for credentialing workflows. Implement API Gateway for external system integration and DynamoDB for real-time provider status tracking.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  },
+                  {
+                     "id":"SEC_2_2",
+                     "title":"Deploy continuous sanctions screening and exclusion monitoring.",
+                     "helpfulResource":{
+                        "displayText":"Implement real-time screening against OIG exclusion lists, SAM.gov, and state exclusion databases. Automatically suspend access and payments for sanctioned providers."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Lambda for scheduled sanctions screening. Implement EventBridge for real-time notifications and automated workflow triggers for provider suspensions.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             },
             {
-              "condition": "enrollment_efficiency_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
+               "id":"SEC_3",
+               "title":"How do you secure beneficiary data and ensure privacy compliance?",
+               "description":"MMIS must protect beneficiary PHI and PII according to HIPAA Privacy and Security Rules, state privacy laws, and CMS data protection requirements while enabling authorized access for care coordination.",
+               "choices":[
+                  {
+                     "id":"SEC_3_1",
+                     "title":"Implement fine-grained access controls and data minimization.",
+                     "helpfulResource":{
+                        "displayText":"Deploy attribute-based access control (ABAC) to ensure users access only the minimum necessary PHI for their role. Implement data masking and tokenization for non-production environments."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use Amazon Verified Permissions for fine-grained access control. Implement AWS Macie for data classification and Amazon DynamoDB encryption with customer-managed keys.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  },
+                  {
+                     "id":"SEC_3_2",
+                     "title":"Enable secure data sharing for care coordination.",
+                     "helpfulResource":{
+                        "displayText":"Implement secure APIs for authorized data sharing with healthcare providers, HIEs, and other state agencies while maintaining audit trails and consent management."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy AWS API Gateway with OAuth 2.0 and SMART on FHIR for secure data sharing. Use Amazon Cognito for consent management and access token lifecycle.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             }
-          ]
-        },
-        {
-          "id": "provider_enrollment_q2",
-          "title": "How effectively does the enrollment process validate provider credentials?",
-          "description": "Effective validation of provider credentials is essential for program integrity. This question evaluates the systems and processes used to verify provider information against authoritative sources. This aligns with CMS-Required outcomes PM2-3 (Screening) and PM10 (External Systems Checks).",
-          "choices": [
+         ]
+      },
+      {
+         "id":"REL",
+         "name":"Reliability Pillar for Medicaid",
+         "questions":[
             {
-              "id": "credential_validation_1",
-              "title": "The system automatically checks required federal databases (LEIE, EPLS, NPPES, Death Master File)",
-              "helpfulResource": {
-                "displayText": "Federal regulations require checking specific databases during provider enrollment and revalidation.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.436"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated checks against all required federal databases with clear reporting of results and issues."
-              }
+               "id":"REL_1",
+               "title":"How do you ensure 99.9% uptime for critical MMIS functions?",
+               "description":"MMIS must maintain high availability for eligibility verification, claims processing, and provider payments to ensure continuous healthcare service delivery and meet CMS performance standards.",
+               "choices":[
+                  {
+                     "id":"REL_1_1",
+                     "title":"Implement multi-AZ deployment with automated failover for core MMIS modules.",
+                     "helpfulResource":{
+                        "displayText":"Deploy eligibility, claims processing, and payment modules across multiple Availability Zones with automated failover to ensure continuous operation during infrastructure failures."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS RDS Multi-AZ for databases, Application Load Balancer for traffic distribution, and Auto Scaling Groups across multiple AZs for compute resources.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/"
+                     }
+                  },
+                  {
+                     "id":"REL_1_2",
+                     "title":"Establish disaster recovery with RPO < 4 hours and RTO < 8 hours.",
+                     "helpfulResource":{
+                        "displayText":"Implement cross-region disaster recovery for MMIS with automated backup, replication, and recovery procedures to meet CMS business continuity requirements."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Backup for automated backups, DMS for database replication, and AWS Disaster Recovery service for orchestrated failover procedures.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/"
+                     }
+                  },
+                  {
+                     "id":"REL_1_3",
+                     "title":"Deploy circuit breakers and graceful degradation for external dependencies.",
+                     "helpfulResource":{
+                        "displayText":"Implement resilience patterns to handle failures in external systems like federal hubs, provider directories, and third-party services without impacting core MMIS functionality."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS App Mesh for service mesh capabilities, implement circuit breaker patterns with AWS Lambda, and deploy caching with ElastiCache for external data.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             },
             {
-              "id": "credential_validation_2",
-              "title": "The system verifies state licensure status in real-time or near real-time",
-              "helpfulResource": {
-                "displayText": "Real-time verification of licensure status helps prevent enrollment of providers with expired or restricted licenses.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.412"
-              },
-              "improvementPlan": {
-                "displayText": "Establish real-time interfaces with state licensing boards to verify current license status and any limitations."
-              }
-            },
-            {
-              "id": "credential_validation_3",
-              "title": "The system supports risk-based screening with appropriate levels of scrutiny",
-              "helpfulResource": {
-                "displayText": "Federal regulations require assigning risk levels (limited, moderate, high) to provider types and applying appropriate screening measures.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.450"
-              },
-              "improvementPlan": {
-                "displayText": "Implement risk-based screening protocols that adjust verification requirements based on provider risk level."
-              }
+               "id":"REL_2",
+               "title":"How do you handle peak loads during open enrollment and emergency situations?",
+               "description":"MMIS must scale to handle significant traffic spikes during open enrollment periods, public health emergencies, and benefit changes while maintaining performance and availability.",
+               "choices":[
+                  {
+                     "id":"REL_2_1",
+                     "title":"Implement auto-scaling for variable workloads with predictive scaling.",
+                     "helpfulResource":{
+                        "displayText":"Deploy auto-scaling groups with predictive scaling to handle known traffic patterns like open enrollment while maintaining capacity for unexpected spikes during emergencies."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Configure AWS Auto Scaling with predictive scaling policies, use Amazon CloudWatch for metrics-based scaling, and implement AWS Lambda for serverless components.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/"
+                     }
+                  },
+                  {
+                     "id":"REL_2_2",
+                     "title":"Deploy queue-based processing for high-volume batch operations.",
+                     "helpfulResource":{
+                        "displayText":"Use message queuing and batch processing for claims adjudication, eligibility updates, and provider payments to handle volume spikes without impacting real-time services."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Implement Amazon SQS for message queuing, AWS Batch for large-scale processing, and Amazon EventBridge for event-driven architecture.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
             }
-          ],
-          "riskRules": [
+         ]
+      },
+      {
+         "id":"PERF",
+         "name":"Performance Efficiency Pillar for Medicaid",
+         "questions":[
             {
-              "condition": "credential_validation_1 && credential_validation_2 && credential_validation_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "credential_validation_1 && (credential_validation_2 || credential_validation_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "credential_validation_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
+               "id":"PERF_1",
+               "title":"How do you achieve CMS performance standards for MMIS operations?",
+               "description":"MMIS must meet CMS performance requirements including sub-second eligibility verification, 99% claims auto-adjudication, and real-time provider portal responsiveness to support healthcare delivery.",
+               "choices":[
+                  {
+                     "id":"PERF_1_1",
+                     "title":"Optimize claims processing for 99% auto-adjudication rate.",
+                     "helpfulResource":{
+                        "displayText":"Implement high-performance claims processing engine with business rules automation, real-time provider verification, and automated prior authorization workflows to achieve CMS auto-adjudication targets."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy Amazon Kinesis for real-time claims streaming, AWS Lambda for rules processing, and Amazon ElastiCache for provider and benefit data caching.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/"
+                     }
+                  },
+                  {
+                     "id":"PERF_1_2",
+                     "title":"Ensure sub-second eligibility verification response times.",
+                     "helpfulResource":{
+                        "displayText":"Deploy high-performance eligibility verification APIs with global caching, database optimization, and edge computing to support point-of-care decisions within CMS latency requirements."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use Amazon DynamoDB with Global Tables, CloudFront for edge caching, and AWS Lambda@Edge for distributed processing of eligibility requests.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/"
+                     }
+                  },
+                  {
+                     "id":"PERF_1_3",
+                     "title":"Optimize batch processing for nightly operations and reporting.",
+                     "helpfulResource":{
+                        "displayText":"Implement high-throughput batch processing for claims settlement, provider payments, and regulatory reporting to complete within required processing windows."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Batch with Spot Instances for cost-effective processing, Amazon EMR for large-scale data analytics, and AWS Glue for ETL operations.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
             }
-          ]
-        },
-        {
-          "id": "provider_enrollment_q3",
-          "title": "How does the system track and manage provider revalidation cycles?",
-          "description": "Federal regulations require revalidation of all providers at least every five years. This question evaluates the systems and processes used to track revalidation cycles and ensure timely completion. This aligns with CMS-Required outcome PM4 (Revalidation).",
-          "choices": [
+         ]
+      },
+      {
+         "id":"COST",
+         "name":"Cost Optimization Pillar for Medicaid",
+         "questions":[
             {
-              "id": "revalidation_1",
-              "title": "The system automatically tracks the five-year revalidation cycle for all providers",
-              "helpfulResource": {
-                "displayText": "Automated tracking of revalidation cycles helps ensure compliance with federal requirements.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.414"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated tracking of provider enrollment periods with alerts for upcoming revalidation deadlines."
-              }
-            },
-            {
-              "id": "revalidation_2",
-              "title": "The system generates notifications to providers in advance of revalidation deadlines",
-              "helpfulResource": {
-                "displayText": "Proactive notifications help ensure timely revalidation and reduce lapses in enrollment.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Configure the system to send automated notifications to providers at defined intervals before revalidation deadlines."
-              }
-            },
-            {
-              "id": "revalidation_3",
-              "title": "The system supports streamlined revalidation processes that minimize provider burden",
-              "helpfulResource": {
-                "displayText": "Streamlined revalidation processes improve provider satisfaction and compliance rates.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement pre-populated revalidation forms and simplified verification for providers with good compliance history."
-              }
+               "id":"COST_1",
+               "title":"How do you align cloud costs with APD funding and federal claiming processes?",
+               "description":"MMIS implementations must optimize costs while aligning with Advance Planning Document (APD) budgets and federal claiming requirements, maximizing federal financial participation (FFP) opportunities.",
+               "choices":[
+                  {
+                     "id":"COST_1_1",
+                     "title":"Implement cost allocation and tagging for federal claiming.",
+                     "helpfulResource":{
+                        "displayText":"Deploy comprehensive resource tagging and cost allocation strategies to support federal claiming processes and maximize FFP reimbursement for eligible MMIS costs."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Cost and Usage Reports with detailed tagging, AWS Budgets for APD tracking, and AWS Cost Explorer for federal claiming analysis.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/"
+                     }
+                  },
+                  {
+                     "id":"COST_1_2",
+                     "title":"Optimize compute costs with usage-based scaling for Medicaid workloads.",
+                     "helpfulResource":{
+                        "displayText":"Implement auto-scaling and serverless architectures to handle variable Medicaid workloads like open enrollment, benefit renewals, and emergency response while minimizing costs during low-utilization periods."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use AWS Savings Plans for predictable workloads, Spot Instances for batch processing, and serverless services for variable demand patterns.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/"
+                     }
+                  },
+                  {
+                     "id":"COST_1_3",
+                     "title":"Implement intelligent data lifecycle management for regulatory retention.",
+                     "helpfulResource":{
+                        "displayText":"Deploy automated data lifecycle policies that balance regulatory retention requirements with storage costs, moving data through appropriate storage tiers based on access patterns and compliance needs."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Use S3 Intelligent Tiering for automatic cost optimization, S3 Glacier for long-term archival, and AWS DataSync for efficient data movement.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"MEDIUM_RISK"
+                  }
+               ]
             }
-          ],
-          "riskRules": [
+         ]
+      },
+      {
+         "id":"SUS",
+         "name":"Sustainability Pillar for Medicaid",
+         "questions":[
             {
-              "condition": "revalidation_1 && revalidation_2 && revalidation_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "revalidation_1 && (revalidation_2 || revalidation_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "revalidation_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
+               "id":"SUS_1",
+               "title":"How do you minimize environmental impact while meeting MMIS performance requirements?",
+               "description":"State Medicaid agencies can reduce environmental impact through efficient MMIS operations while maintaining CMS performance standards and beneficiary service quality.",
+               "choices":[
+                  {
+                     "id":"SUS_1_1",
+                     "title":"Optimize MMIS compute resources with energy-efficient architectures.",
+                     "helpfulResource":{
+                        "displayText":"Deploy AWS Graviton processors and right-sized instances for MMIS workloads, use serverless computing for variable demand, and implement efficient batch processing schedules to minimize energy consumption."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Migrate to Graviton-based instances, implement AWS Compute Optimizer recommendations, and use AWS Lambda for event-driven processing to reduce idle compute time.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/"
+                     }
+                  },
+                  {
+                     "id":"SUS_1_2",
+                     "title":"Implement sustainable data practices for long-term Medicaid records.",
+                     "helpfulResource":{
+                        "displayText":"Use data deduplication, compression, and intelligent tiering to minimize storage footprint while meeting regulatory retention requirements. Optimize data processing to reduce computational overhead."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Deploy S3 Intelligent Tiering, implement data compression algorithms, and use AWS Glue for efficient ETL processing to reduce data processing energy consumption.",
+                        "url":"https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/"
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"default",
+                     "risk":"NO_RISK"
+                  }
+               ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "provider_management",
-      "name": "Provider Management",
-      "questions": [
-        {
-          "id": "provider_management_q1",
-          "title": "How effectively is provider information maintained and updated?",
-          "description": "Maintaining current and accurate provider information is essential for program integrity and beneficiary access to care. This question evaluates the systems and processes used to update and verify provider information. This aligns with CMS-Required outcome PM20 (Change in Circumstances).",
-          "choices": [
-            {
-              "id": "info_maintenance_1",
-              "title": "The system allows providers to update their information through a self-service portal",
-              "helpfulResource": {
-                "displayText": "Self-service capabilities improve data currency and reduce administrative burden.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement a secure provider portal that allows providers to update their information with appropriate validation."
-              }
-            },
-            {
-              "id": "info_maintenance_2",
-              "title": "The system validates updated information against authoritative sources",
-              "helpfulResource": {
-                "displayText": "Validation against authoritative sources helps maintain data quality and program integrity.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated validation of provider updates against appropriate external databases and sources."
-              }
-            },
-            {
-              "id": "info_maintenance_3",
-              "title": "The system tracks and reports on provider information currency and completeness",
-              "helpfulResource": {
-                "displayText": "Monitoring data currency and completeness helps identify areas for improvement.",
-                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement data quality monitoring with metrics for currency, completeness, and accuracy of provider information."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "info_maintenance_1 && info_maintenance_2 && info_maintenance_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "info_maintenance_1 && (info_maintenance_2 || info_maintenance_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "info_maintenance_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        },
-        {
-          "id": "provider_management_q2",
-          "title": "How accessible and accurate is the provider directory for beneficiaries?",
-          "description": "Provider directories are essential tools for beneficiaries to find appropriate care. This question evaluates the accessibility, accuracy, and functionality of provider directories. This aligns with CMS-Required outcome PM21 (Directory).",
-          "choices": [
-            {
-              "id": "directory_1",
-              "title": "The provider directory is available online with search capabilities",
-              "helpfulResource": {
-                "displayText": "Online searchable directories improve beneficiary access to provider information.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-A/section-438.10"
-              },
-              "improvementPlan": {
-                "displayText": "Implement an online provider directory with comprehensive search capabilities accessible to beneficiaries."
-              }
-            },
-            {
-              "id": "directory_2",
-              "title": "The provider directory is updated at least monthly",
-              "helpfulResource": {
-                "displayText": "Regular updates help ensure directory accuracy and usefulness.",
-                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Establish processes for regular updates to the provider directory with clear data refresh schedules."
-              }
-            },
-            {
-              "id": "directory_3",
-              "title": "The provider directory includes all required information (specialties, languages, accessibility, etc.)",
-              "helpfulResource": {
-                "displayText": "Comprehensive provider information helps beneficiaries make informed choices.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-A/section-438.10"
-              },
-              "improvementPlan": {
-                "displayText": "Enhance the provider directory to include all required information elements and validate completeness."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "directory_1 && directory_2 && directory_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "directory_1 && (directory_2 || directory_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "directory_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        },
-        {
-          "id": "provider_management_q3",
-          "title": "How well does the system support network adequacy monitoring and reporting?",
-          "description": "Network adequacy ensures beneficiaries have appropriate access to care. This question evaluates the systems and processes used to monitor and report on network adequacy. This aligns with CMS-Required outcome PM14 (Network Adequacy).",
-          "choices": [
-            {
-              "id": "network_adequacy_1",
-              "title": "The system can generate network adequacy reports based on federal and state requirements",
-              "helpfulResource": {
-                "displayText": "Automated reporting capabilities help ensure compliance with network adequacy requirements.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.68"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated network adequacy reporting capabilities aligned with federal and state requirements."
-              }
-            },
-            {
-              "id": "network_adequacy_2",
-              "title": "The system supports geospatial analysis of provider networks",
-              "helpfulResource": {
-                "displayText": "Geospatial analysis helps identify gaps in provider coverage and access issues.",
-                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement geospatial analysis capabilities to evaluate provider network coverage and identify gaps."
-              }
-            },
-            {
-              "id": "network_adequacy_3",
-              "title": "The system can identify network gaps and support targeted provider recruitment",
-              "helpfulResource": {
-                "displayText": "Proactive identification of network gaps helps improve beneficiary access to care.",
-                "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rule/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Enhance network adequacy monitoring with gap analysis and targeted provider recruitment capabilities."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "network_adequacy_1 && network_adequacy_2 && network_adequacy_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "network_adequacy_1 && (network_adequacy_2 || network_adequacy_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "network_adequacy_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "provider_termination",
-      "name": "Provider Termination",
-      "questions": [
-        {
-          "id": "provider_termination_q1",
-          "title": "How effectively are provider terminations managed?",
-          "description": "Effective termination management is essential for program integrity. This question evaluates the systems and processes used to manage provider terminations. This aligns with CMS-Required outcome PM5 (Termination).",
-          "choices": [
-            {
-              "id": "termination_mgmt_1",
-              "title": "The system supports automated termination based on specific conditions defined in regulations",
-              "helpfulResource": {
-                "displayText": "Automated termination helps ensure compliance with federal requirements for mandatory termination conditions.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.416"
-              },
-              "improvementPlan": {
-                "displayText": "Implement business rules to automatically identify and process terminations based on regulatory conditions."
-              }
-            },
-            {
-              "id": "termination_mgmt_2",
-              "title": "The system tracks and categorizes termination reasons",
-              "helpfulResource": {
-                "displayText": "Tracking termination reasons helps identify trends and support program integrity efforts.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Enhance termination tracking with standardized reason codes and reporting capabilities."
-              }
-            },
-            {
-              "id": "termination_mgmt_3",
-              "title": "The system generates appropriate termination notices to providers",
-              "helpfulResource": {
-                "displayText": "Clear communication of termination decisions is essential for due process.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated generation of termination notices with appropriate content based on termination reason."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "termination_mgmt_1 && termination_mgmt_2 && termination_mgmt_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "termination_mgmt_1 && (termination_mgmt_2 || termination_mgmt_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "termination_mgmt_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        },
-        {
-          "id": "provider_termination_q2",
-          "title": "How well does the system support the provider appeals process?",
-          "description": "Providers have the right to appeal termination decisions. This question evaluates the systems and processes used to manage provider appeals. This aligns with CMS-Required outcome PM7 (Appeal).",
-          "choices": [
-            {
-              "id": "appeals_1",
-              "title": "The system tracks appeal submissions and status",
-              "helpfulResource": {
-                "displayText": "Effective tracking of appeals helps ensure timely resolution and due process.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.422"
-              },
-              "improvementPlan": {
-                "displayText": "Implement appeal tracking capabilities with status monitoring and reporting."
-              }
-            },
-            {
-              "id": "appeals_2",
-              "title": "The system supports documentation of appeal decisions and rationale",
-              "helpfulResource": {
-                "displayText": "Documenting appeal decisions helps ensure consistency and supports potential legal review.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Enhance appeal management with structured documentation of decisions and supporting rationale."
-              }
-            },
-            {
-              "id": "appeals_3",
-              "title": "The system generates appropriate notifications throughout the appeals process",
-              "helpfulResource": {
-                "displayText": "Clear communication during the appeals process is essential for due process.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated notifications for key milestones in the appeals process."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "appeals_1 && appeals_2 && appeals_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "appeals_1 && (appeals_2 || appeals_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "appeals_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        },
-        {
-          "id": "provider_termination_q3",
-          "title": "How effectively does the system share termination information with other states and Medicare?",
-          "description": "Sharing termination information helps prevent terminated providers from enrolling in other programs. This question evaluates the systems and processes used to share termination information. This aligns with CMS-Required outcome PM15 (Sanctions and Terminations).",
-          "choices": [
-            {
-              "id": "info_sharing_1",
-              "title": "The system reports termination information to appropriate federal databases",
-              "helpfulResource": {
-                "displayText": "Reporting to federal databases helps prevent terminated providers from enrolling in other programs.",
-                "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-455/subpart-E/section-455.416"
-              },
-              "improvementPlan": {
-                "displayText": "Implement automated reporting of termination information to appropriate federal databases."
-              }
-            },
-            {
-              "id": "info_sharing_2",
-              "title": "The system receives and processes termination information from other states and Medicare",
-              "helpfulResource": {
-                "displayText": "Processing external termination information helps prevent enrollment of providers terminated by other programs.",
-                "url": "https://www.medicaid.gov/medicaid/program-integrity/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Implement capabilities to receive and process termination information from other states and Medicare."
-              }
-            },
-            {
-              "id": "info_sharing_3",
-              "title": "The system automatically identifies providers who have been terminated by other programs",
-              "helpfulResource": {
-                "displayText": "Automated identification helps prevent enrollment of providers terminated by other programs.",
-                "url": "https://www.medicaid.gov/medicaid/provider-enrollment-and-screening/index.html"
-              },
-              "improvementPlan": {
-                "displayText": "Enhance screening processes to automatically identify providers terminated by other programs."
-              }
-            }
-          ],
-          "riskRules": [
-            {
-              "condition": "info_sharing_1 && info_sharing_2 && info_sharing_3",
-              "risk": "NO_RISK"
-            },
-            {
-              "condition": "info_sharing_1 && (info_sharing_2 || info_sharing_3)",
-              "risk": "LOW_RISK"
-            },
-            {
-              "condition": "info_sharing_1",
-              "risk": "MEDIUM_RISK"
-            },
-            {
-              "condition": "default",
-              "risk": "HIGH_RISK"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+         ]
+      }
+   ]
 }
